@@ -1,0 +1,28 @@
+name: Ofertas Diarias JJ EXPRESS
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 09:00 AM Panama (UTC-5) = 14:00 UTC
+    - cron: "0 14 * * *"
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run bot
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+        run: python bot.py
