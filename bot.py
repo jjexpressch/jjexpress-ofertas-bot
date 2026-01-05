@@ -64,7 +64,9 @@ def main() -> None:
         format_block("🟧 Amazon", AMAZON_DEALS, MAX_LINKS_PER_STORE),
         format_block("🟦 eBay", EBAY_DEALS, MAX_LINKS_PER_STORE),
         format_block("🟩 Walmart", WALMART_DEALS, MAX_LINKS_PER_STORE),
-        '\n📲 <b>Para cotizar o pedir:</b> <a href="https://wa.me/50767405568">Escríbenos por WhatsApp</a> 📞',
+        '\n📲 <b>Para cotizar o pedir:</b>\n'
+'<a href="https://wa.me/50767405568">📞 WhatsApp</a> | '
+'<a href="https://instagram.com/jjexpressch>📸 Instagram</a>',
     ]
 
     msg = header + "\n\n" + "\n\n".join(parts)
